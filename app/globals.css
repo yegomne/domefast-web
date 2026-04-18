@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #f9f5ff;
+  --app-primary: #0846ed;
+  --app-primary-dim: #003cd3;
+  --app-surface-container: #e9e5ff;
+  --app-surface-low: #f2efff;
+  --app-surface-lowest: #ffffff;
+  --app-on-background: #2b2a51;
+  --app-on-surface-variant: #585781;
+  --app-outline-variant: #aba9d7;
+  --app-glass-bg: rgba(255, 255, 255, 0.75);
+  --app-glass-nav: rgba(242, 239, 255, 0.6);
+  --app-shadow: rgba(43, 42, 81, 0.06);
+}
+
+.dark {
+  --app-bg: #0b0a14;
+  --app-primary: #457eff;
+  --app-primary-dim: #255bed;
+  --app-surface-container: #26253d;
+  --app-surface-low: #151421;
+  --app-surface-lowest: #1d1b2b;
+  --app-on-background: #e9e5ff;
+  --app-on-surface-variant: #aba9d7;
+  --app-outline-variant: #424161;
+  --app-glass-bg: rgba(29, 27, 43, 0.75);
+  --app-glass-nav: rgba(21, 20, 33, 0.6);
+  --app-shadow: rgba(0, 0, 0, 0.4);
+}
+
+@theme {
+  --color-background: var(--app-bg);
+  --color-primary: var(--app-primary);
+  --color-primary-dim: var(--app-primary-dim);
+  --color-surface-container: var(--app-surface-container);
+  --color-surface-low: var(--app-surface-low);
+  --color-surface-lowest: var(--app-surface-lowest);
+  --color-on-background: var(--app-on-background);
+  --color-on-surface-variant: var(--app-on-surface-variant);
+  --color-outline-variant: var(--app-outline-variant);
+
+  --font-manrope: "Manrope", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-inter);
+    background-image: radial-gradient(circle at top right, rgba(133, 154, 255, 0.08), transparent 50%);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background-color: var(--app-glass-bg);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    box-shadow: 0 24px 48px var(--app-shadow);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(171, 169, 215, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-nav {
+    background-color: var(--app-glass-nav);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    transition: all 0.3s ease;
+  }
+
+  .primary-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dim));
+    color: #ffffff;
+  }
+  
+  .ghost-input-container {
+    background-color: var(--color-surface-low);
+    border-bottom: 2px solid var(--color-outline-variant);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ghost-input-container:focus-within {
+    border-bottom-color: var(--color-primary);
+    background-color: var(--color-surface-lowest);
+  }
+}
