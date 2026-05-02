@@ -180,7 +180,7 @@ export default function LandingPage() {
 
   const closeModal = () => setIsModalOpen(false);
 
-  const downloadLink = "https://github.com/yegomne/domeggook-tool/releases/latest/download/domeggook_tool.exe";
+  const downloadLink = "https://github.com/yegomne/domefast-web/releases/latest/download/domeggook_tool.exe";
   
   return (
     <div className="min-h-screen bg-app-bg text-app-fg font-sans selection:bg-purple-500/30 relative">
